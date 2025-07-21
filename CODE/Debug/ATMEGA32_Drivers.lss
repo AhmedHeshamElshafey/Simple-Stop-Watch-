@@ -1,0 +1,1071 @@
+
+ATMEGA32_Drivers.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000062e  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000054  00800060  0000062e  000006c2  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000008  008000b4  008000b4  00000716  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000716  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000748  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000f8  00000000  00000000  00000784  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000175a  00000000  00000000  0000087c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 000009f6  00000000  00000000  00001fd6  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000a4b  00000000  00000000  000029cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  000001a0  00000000  00000000  00003418  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00000828  00000000  00000000  000035b8  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    0000090d  00000000  00000000  00003de0  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000b8  00000000  00000000  000046ed  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d8 e0       	ldi	r29, 0x08	; 8
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	ee e2       	ldi	r30, 0x2E	; 46
+  68:	f6 e0       	ldi	r31, 0x06	; 6
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a4 3b       	cpi	r26, 0xB4	; 180
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a4 eb       	ldi	r26, 0xB4	; 180
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	ac 3b       	cpi	r26, 0xBC	; 188
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 d4 01 	call	0x3a8	; 0x3a8 <main>
+  8a:	0c 94 15 03 	jmp	0x62a	; 0x62a <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <HAL_SEVENSEGMANT_sendData>:
+extern const SEVENSEGMANT_Settings_et SEVENSEGMANT_Settings[SEVENSEGAMNT_SETTINGS];
+extern const DIO_PINS_et SEVENSEGMANT_Pins[NORMAL_SEVENSEGAMNT_PINS];
+const u8 COMMONCATHODE_SEVENSEGMANT_NUMBER [HEXNUMBERS]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
+
+ void HAL_SEVENSEGMANT_sendData(u8 NUMBER)
+{
+  92:	df 92       	push	r13
+  94:	ef 92       	push	r14
+  96:	ff 92       	push	r15
+  98:	0f 93       	push	r16
+  9a:	1f 93       	push	r17
+  9c:	cf 93       	push	r28
+  9e:	df 93       	push	r29
+	u8 pinx=0;
+	u8 PinsNumber=0;
+	
+	if ((SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)||(SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment))
+  a0:	90 91 a2 00 	lds	r25, 0x00A2	; 0x8000a2 <SEVENSEGMANT_Settings>
+  a4:	92 30       	cpi	r25, 0x02	; 2
+  a6:	50 f0       	brcs	.+20     	; 0xbc <HAL_SEVENSEGMANT_sendData+0x2a>
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+  a8:	92 30       	cpi	r25, 0x02	; 2
+  aa:	51 f1       	breq	.+84     	; 0x100 <HAL_SEVENSEGMANT_sendData+0x6e>
+		{
+			MCAL_DIO_WRITEPIN(SEVENSEGMANT_Pins[pinx],LOW);
+		}
+	}
+	
+}
+  ac:	df 91       	pop	r29
+  ae:	cf 91       	pop	r28
+  b0:	1f 91       	pop	r17
+  b2:	0f 91       	pop	r16
+  b4:	ff 90       	pop	r15
+  b6:	ef 90       	pop	r14
+  b8:	df 90       	pop	r13
+  ba:	08 95       	ret
+	u8 pinx=0;
+	u8 PinsNumber=0;
+	
+	if ((SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)||(SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment))
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+  bc:	27 e0       	ldi	r18, 0x07	; 7
+  be:	d2 2e       	mov	r13, r18
+  c0:	e8 2e       	mov	r14, r24
+  c2:	f1 2c       	mov	r15, r1
+  c4:	0a e9       	ldi	r16, 0x9A	; 154
+  c6:	10 e0       	ldi	r17, 0x00	; 0
+extern const SEVENSEGMANT_Settings_et SEVENSEGMANT_Settings[SEVENSEGAMNT_SETTINGS];
+extern const DIO_PINS_et SEVENSEGMANT_Pins[NORMAL_SEVENSEGAMNT_PINS];
+const u8 COMMONCATHODE_SEVENSEGMANT_NUMBER [HEXNUMBERS]={0x3F,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F,0x6F,0x77,0x7C,0x39,0x5E,0x79,0x71};
+
+ void HAL_SEVENSEGMANT_sendData(u8 NUMBER)
+{
+  c8:	c0 e0       	ldi	r28, 0x00	; 0
+  ca:	d0 e0       	ldi	r29, 0x00	; 0
+  cc:	0a c0       	rjmp	.+20     	; 0xe2 <HAL_SEVENSEGMANT_sendData+0x50>
+	for (pinx=0;pinx<PinsNumber;pinx++)
+	{
+		
+		if ((NUMBER>>pinx)&1)
+		{
+			MCAL_DIO_WRITEPIN(SEVENSEGMANT_Pins[pinx],HIGH);
+  ce:	61 e0       	ldi	r22, 0x01	; 1
+  d0:	f8 01       	movw	r30, r16
+  d2:	80 81       	ld	r24, Z
+  d4:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+  d8:	21 96       	adiw	r28, 0x01	; 1
+  da:	0f 5f       	subi	r16, 0xFF	; 255
+  dc:	1f 4f       	sbci	r17, 0xFF	; 255
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+	{
+		PinsNumber=BCD_SEVENSEGAMNT_PINS-1;
+	}
+	
+	for (pinx=0;pinx<PinsNumber;pinx++)
+  de:	cd 15       	cp	r28, r13
+  e0:	28 f7       	brcc	.-54     	; 0xac <HAL_SEVENSEGMANT_sendData+0x1a>
+	{
+		
+		if ((NUMBER>>pinx)&1)
+  e2:	c7 01       	movw	r24, r14
+  e4:	0c 2e       	mov	r0, r28
+  e6:	02 c0       	rjmp	.+4      	; 0xec <HAL_SEVENSEGMANT_sendData+0x5a>
+  e8:	95 95       	asr	r25
+  ea:	87 95       	ror	r24
+  ec:	0a 94       	dec	r0
+  ee:	e2 f7       	brpl	.-8      	; 0xe8 <HAL_SEVENSEGMANT_sendData+0x56>
+  f0:	80 fd       	sbrc	r24, 0
+  f2:	ed cf       	rjmp	.-38     	; 0xce <HAL_SEVENSEGMANT_sendData+0x3c>
+		{
+			MCAL_DIO_WRITEPIN(SEVENSEGMANT_Pins[pinx],HIGH);
+		}
+		else
+		{
+			MCAL_DIO_WRITEPIN(SEVENSEGMANT_Pins[pinx],LOW);
+  f4:	60 e0       	ldi	r22, 0x00	; 0
+  f6:	f8 01       	movw	r30, r16
+  f8:	80 81       	ld	r24, Z
+  fa:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+  fe:	ec cf       	rjmp	.-40     	; 0xd8 <HAL_SEVENSEGMANT_sendData+0x46>
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+	{
+		PinsNumber=BCD_SEVENSEGAMNT_PINS-1;
+ 100:	94 e0       	ldi	r25, 0x04	; 4
+ 102:	d9 2e       	mov	r13, r25
+ 104:	dd cf       	rjmp	.-70     	; 0xc0 <HAL_SEVENSEGMANT_sendData+0x2e>
+
+00000106 <HAL_SEVENSEGMANT_Init>:
+	}
+	
+}
+
+void HAL_SEVENSEGMANT_Init (void)
+{
+ 106:	0f 93       	push	r16
+ 108:	1f 93       	push	r17
+ 10a:	cf 93       	push	r28
+ 10c:	df 93       	push	r29
+	u8 pinx=0;
+	u8 PinsNumber=0;
+		
+	if ((SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)||(SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment))
+ 10e:	80 91 a2 00 	lds	r24, 0x00A2	; 0x8000a2 <SEVENSEGMANT_Settings>
+ 112:	82 30       	cpi	r24, 0x02	; 2
+ 114:	58 f0       	brcs	.+22     	; 0x12c <HAL_SEVENSEGMANT_Init+0x26>
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+ 116:	82 30       	cpi	r24, 0x02	; 2
+ 118:	19 f1       	breq	.+70     	; 0x160 <HAL_SEVENSEGMANT_Init+0x5a>
+	for (pinx=0;pinx<PinsNumber;pinx++)
+	{
+		MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[pinx],OUTPUTT);
+	} 
+	
+	if (SEVENSEGMANT_Settings[SEVENSEGAMNT_COMMON_PIN_CONNECTION]==CONNECTED)
+ 11a:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <SEVENSEGMANT_Settings+0x1>
+ 11e:	83 30       	cpi	r24, 0x03	; 3
+ 120:	b1 f0       	breq	.+44     	; 0x14e <HAL_SEVENSEGMANT_Init+0x48>
+	{
+	      MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[COMMON_PIN],OUTPUTT);	
+	}
+	
+}
+ 122:	df 91       	pop	r29
+ 124:	cf 91       	pop	r28
+ 126:	1f 91       	pop	r17
+ 128:	0f 91       	pop	r16
+ 12a:	08 95       	ret
+	u8 pinx=0;
+	u8 PinsNumber=0;
+		
+	if ((SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)||(SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment))
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+ 12c:	d7 e0       	ldi	r29, 0x07	; 7
+ 12e:	0a e9       	ldi	r16, 0x9A	; 154
+ 130:	10 e0       	ldi	r17, 0x00	; 0
+	}
+	
+}
+
+void HAL_SEVENSEGMANT_Init (void)
+{
+ 132:	c0 e0       	ldi	r28, 0x00	; 0
+		PinsNumber=BCD_SEVENSEGAMNT_PINS-1;
+	}
+	
+	for (pinx=0;pinx<PinsNumber;pinx++)
+	{
+		MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[pinx],OUTPUTT);
+ 134:	60 e0       	ldi	r22, 0x00	; 0
+ 136:	f8 01       	movw	r30, r16
+ 138:	81 91       	ld	r24, Z+
+ 13a:	8f 01       	movw	r16, r30
+ 13c:	0e 94 1d 02 	call	0x43a	; 0x43a <MCAL_DIO_SetPinDirection>
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+	{
+		PinsNumber=BCD_SEVENSEGAMNT_PINS-1;
+	}
+	
+	for (pinx=0;pinx<PinsNumber;pinx++)
+ 140:	cf 5f       	subi	r28, 0xFF	; 255
+ 142:	cd 17       	cp	r28, r29
+ 144:	b8 f3       	brcs	.-18     	; 0x134 <HAL_SEVENSEGMANT_Init+0x2e>
+	{
+		MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[pinx],OUTPUTT);
+	} 
+	
+	if (SEVENSEGMANT_Settings[SEVENSEGAMNT_COMMON_PIN_CONNECTION]==CONNECTED)
+ 146:	80 91 a3 00 	lds	r24, 0x00A3	; 0x8000a3 <SEVENSEGMANT_Settings+0x1>
+ 14a:	83 30       	cpi	r24, 0x03	; 3
+ 14c:	51 f7       	brne	.-44     	; 0x122 <HAL_SEVENSEGMANT_Init+0x1c>
+	{
+	      MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[COMMON_PIN],OUTPUTT);	
+ 14e:	60 e0       	ldi	r22, 0x00	; 0
+ 150:	80 91 a1 00 	lds	r24, 0x00A1	; 0x8000a1 <SEVENSEGMANT_Pins+0x7>
+	}
+	
+}
+ 154:	df 91       	pop	r29
+ 156:	cf 91       	pop	r28
+ 158:	1f 91       	pop	r17
+ 15a:	0f 91       	pop	r16
+		MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[pinx],OUTPUTT);
+	} 
+	
+	if (SEVENSEGMANT_Settings[SEVENSEGAMNT_COMMON_PIN_CONNECTION]==CONNECTED)
+	{
+	      MCAL_DIO_SetPinDirection(SEVENSEGMANT_Pins[COMMON_PIN],OUTPUTT);	
+ 15c:	0c 94 1d 02 	jmp	0x43a	; 0x43a <MCAL_DIO_SetPinDirection>
+	{
+		PinsNumber=NORMAL_SEVENSEGAMNT_PINS-1;
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==Bcd_7Segment)
+	{
+		PinsNumber=BCD_SEVENSEGAMNT_PINS-1;
+ 160:	d4 e0       	ldi	r29, 0x04	; 4
+ 162:	e5 cf       	rjmp	.-54     	; 0x12e <HAL_SEVENSEGMANT_Init+0x28>
+
+00000164 <HAL_SEVENSEGMANT_WriteNumber>:
+	
+}
+
+void HAL_SEVENSEGMANT_WriteNumber (u8 NUMBER)
+{
+	if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)
+ 164:	90 91 a2 00 	lds	r25, 0x00A2	; 0x8000a2 <SEVENSEGMANT_Settings>
+ 168:	99 23       	and	r25, r25
+ 16a:	21 f0       	breq	.+8      	; 0x174 <HAL_SEVENSEGMANT_WriteNumber+0x10>
+	{
+		HAL_SEVENSEGMANT_sendData(~COMMONCATHODE_SEVENSEGMANT_NUMBER[NUMBER]);	
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment)
+ 16c:	91 30       	cpi	r25, 0x01	; 1
+ 16e:	51 f0       	breq	.+20     	; 0x184 <HAL_SEVENSEGMANT_WriteNumber+0x20>
+	{
+		HAL_SEVENSEGMANT_sendData(COMMONCATHODE_SEVENSEGMANT_NUMBER[NUMBER]);	
+	}
+	else
+	{
+		HAL_SEVENSEGMANT_sendData(NUMBER);
+ 170:	0c 94 49 00 	jmp	0x92	; 0x92 <HAL_SEVENSEGMANT_sendData>
+
+void HAL_SEVENSEGMANT_WriteNumber (u8 NUMBER)
+{
+	if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonAnode_Normal_7Segment)
+	{
+		HAL_SEVENSEGMANT_sendData(~COMMONCATHODE_SEVENSEGMANT_NUMBER[NUMBER]);	
+ 174:	e8 2f       	mov	r30, r24
+ 176:	f0 e0       	ldi	r31, 0x00	; 0
+ 178:	ec 55       	subi	r30, 0x5C	; 92
+ 17a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17c:	80 81       	ld	r24, Z
+ 17e:	80 95       	com	r24
+ 180:	0c 94 49 00 	jmp	0x92	; 0x92 <HAL_SEVENSEGMANT_sendData>
+	}
+	else if (SEVENSEGMANT_Settings[SEVENSEGAMNT_MOOD]==CommonCathode_Normal_7Segment)
+	{
+		HAL_SEVENSEGMANT_sendData(COMMONCATHODE_SEVENSEGMANT_NUMBER[NUMBER]);	
+ 184:	e8 2f       	mov	r30, r24
+ 186:	f0 e0       	ldi	r31, 0x00	; 0
+ 188:	ec 55       	subi	r30, 0x5C	; 92
+ 18a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 18c:	80 81       	ld	r24, Z
+ 18e:	0c 94 49 00 	jmp	0x92	; 0x92 <HAL_SEVENSEGMANT_sendData>
+
+00000192 <Desplay_Number>:
+} 
+void ALARM (void)
+{
+	
+	MCAL_DIO_TOGGLEPIN (DIGIT1LED);
+	MCAL_DIO_TOGGLEPIN (DIGIT2LED);
+ 192:	cf 93       	push	r28
+ 194:	df 93       	push	r29
+ 196:	d8 2f       	mov	r29, r24
+ 198:	61 e0       	ldi	r22, 0x01	; 1
+ 19a:	89 e0       	ldi	r24, 0x09	; 9
+ 19c:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 1a0:	cd ec       	ldi	r28, 0xCD	; 205
+ 1a2:	dc 9f       	mul	r29, r28
+ 1a4:	c1 2d       	mov	r28, r1
+ 1a6:	11 24       	eor	r1, r1
+ 1a8:	c6 95       	lsr	r28
+ 1aa:	c6 95       	lsr	r28
+ 1ac:	c6 95       	lsr	r28
+ 1ae:	8d 2f       	mov	r24, r29
+ 1b0:	9a e0       	ldi	r25, 0x0A	; 10
+ 1b2:	c9 9f       	mul	r28, r25
+ 1b4:	80 19       	sub	r24, r0
+ 1b6:	11 24       	eor	r1, r1
+ 1b8:	0e 94 b2 00 	call	0x164	; 0x164 <HAL_SEVENSEGMANT_WriteNumber>
+ 1bc:	8f e6       	ldi	r24, 0x6F	; 111
+ 1be:	97 e1       	ldi	r25, 0x17	; 23
+ 1c0:	01 97       	sbiw	r24, 0x01	; 1
+ 1c2:	f1 f7       	brne	.-4      	; 0x1c0 <Desplay_Number+0x2e>
+ 1c4:	00 c0       	rjmp	.+0      	; 0x1c6 <Desplay_Number+0x34>
+ 1c6:	00 00       	nop
+ 1c8:	60 e0       	ldi	r22, 0x00	; 0
+ 1ca:	89 e0       	ldi	r24, 0x09	; 9
+ 1cc:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 1d0:	61 e0       	ldi	r22, 0x01	; 1
+ 1d2:	88 e0       	ldi	r24, 0x08	; 8
+ 1d4:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 1d8:	8c 2f       	mov	r24, r28
+ 1da:	0e 94 b2 00 	call	0x164	; 0x164 <HAL_SEVENSEGMANT_WriteNumber>
+ 1de:	8f e6       	ldi	r24, 0x6F	; 111
+ 1e0:	97 e1       	ldi	r25, 0x17	; 23
+ 1e2:	01 97       	sbiw	r24, 0x01	; 1
+ 1e4:	f1 f7       	brne	.-4      	; 0x1e2 <Desplay_Number+0x50>
+ 1e6:	00 c0       	rjmp	.+0      	; 0x1e8 <Desplay_Number+0x56>
+ 1e8:	00 00       	nop
+ 1ea:	60 e0       	ldi	r22, 0x00	; 0
+ 1ec:	88 e0       	ldi	r24, 0x08	; 8
+ 1ee:	df 91       	pop	r29
+ 1f0:	cf 91       	pop	r28
+ 1f2:	0c 94 9d 02 	jmp	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+
+000001f6 <pouse_resume_PB_PRESSED>:
+ 1f6:	8e e0       	ldi	r24, 0x0E	; 14
+ 1f8:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 1fc:	81 11       	cpse	r24, r1
+ 1fe:	09 c0       	rjmp	.+18     	; 0x212 <pouse_resume_PB_PRESSED+0x1c>
+ 200:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <__data_end>
+ 204:	88 23       	and	r24, r24
+ 206:	a9 f0       	breq	.+42     	; 0x232 <pouse_resume_PB_PRESSED+0x3c>
+ 208:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <FLAGOFPB1>
+ 20c:	82 30       	cpi	r24, 0x02	; 2
+ 20e:	39 f0       	breq	.+14     	; 0x21e <pouse_resume_PB_PRESSED+0x28>
+ 210:	08 95       	ret
+ 212:	10 92 b4 00 	sts	0x00B4, r1	; 0x8000b4 <__data_end>
+ 216:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <FLAGOFPB1>
+ 21a:	82 30       	cpi	r24, 0x02	; 2
+ 21c:	c9 f7       	brne	.-14     	; 0x210 <pouse_resume_PB_PRESSED+0x1a>
+ 21e:	10 92 bb 00 	sts	0x00BB, r1	; 0x8000bb <FLAGOFPB1>
+ 222:	60 e0       	ldi	r22, 0x00	; 0
+ 224:	8b e0       	ldi	r24, 0x0B	; 11
+ 226:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 22a:	60 e0       	ldi	r22, 0x00	; 0
+ 22c:	8c e0       	ldi	r24, 0x0C	; 12
+ 22e:	0c 94 9d 02 	jmp	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 232:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <FLAGOFPB1>
+ 236:	8f 5f       	subi	r24, 0xFF	; 255
+ 238:	80 93 bb 00 	sts	0x00BB, r24	; 0x8000bb <FLAGOFPB1>
+ 23c:	61 e0       	ldi	r22, 0x01	; 1
+ 23e:	8b e0       	ldi	r24, 0x0B	; 11
+ 240:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 244:	61 e0       	ldi	r22, 0x01	; 1
+ 246:	8c e0       	ldi	r24, 0x0C	; 12
+ 248:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 24c:	80 91 b4 00 	lds	r24, 0x00B4	; 0x8000b4 <__data_end>
+ 250:	8f 5f       	subi	r24, 0xFF	; 255
+ 252:	80 93 b4 00 	sts	0x00B4, r24	; 0x8000b4 <__data_end>
+ 256:	d8 cf       	rjmp	.-80     	; 0x208 <pouse_resume_PB_PRESSED+0x12>
+
+00000258 <confgration_PB_PRESSED>:
+ 258:	1f 93       	push	r17
+ 25a:	cf 93       	push	r28
+ 25c:	df 93       	push	r29
+ 25e:	8d e0       	ldi	r24, 0x0D	; 13
+ 260:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 264:	81 11       	cpse	r24, r1
+ 266:	5f c0       	rjmp	.+190    	; 0x326 <confgration_PB_PRESSED+0xce>
+ 268:	80 91 b9 00 	lds	r24, 0x00B9	; 0x8000b9 <PRESSEDFLAG_CONFG_PB>
+ 26c:	81 11       	cpse	r24, r1
+ 26e:	5d c0       	rjmp	.+186    	; 0x32a <confgration_PB_PRESSED+0xd2>
+ 270:	80 91 ba 00 	lds	r24, 0x00BA	; 0x8000ba <FLAGOFPB2>
+ 274:	8f 5f       	subi	r24, 0xFF	; 255
+ 276:	80 93 ba 00 	sts	0x00BA, r24	; 0x8000ba <FLAGOFPB2>
+ 27a:	83 30       	cpi	r24, 0x03	; 3
+ 27c:	08 f0       	brcs	.+2      	; 0x280 <confgration_PB_PRESSED+0x28>
+ 27e:	78 c0       	rjmp	.+240    	; 0x370 <confgration_PB_PRESSED+0x118>
+ 280:	c0 e0       	ldi	r28, 0x00	; 0
+ 282:	11 e0       	ldi	r17, 0x01	; 1
+ 284:	81 30       	cpi	r24, 0x01	; 1
+ 286:	09 f4       	brne	.+2      	; 0x28a <confgration_PB_PRESSED+0x32>
+ 288:	7f c0       	rjmp	.+254    	; 0x388 <confgration_PB_PRESSED+0x130>
+ 28a:	82 30       	cpi	r24, 0x02	; 2
+ 28c:	41 f5       	brne	.+80     	; 0x2de <confgration_PB_PRESSED+0x86>
+ 28e:	82 c0       	rjmp	.+260    	; 0x394 <confgration_PB_PRESSED+0x13c>
+ 290:	80 91 b8 00 	lds	r24, 0x00B8	; 0x8000b8 <SECONDPRESSFLAG_CONFG_PB>
+ 294:	81 30       	cpi	r24, 0x01	; 1
+ 296:	09 f4       	brne	.+2      	; 0x29a <confgration_PB_PRESSED+0x42>
+ 298:	5a c0       	rjmp	.+180    	; 0x34e <confgration_PB_PRESSED+0xf6>
+ 29a:	8f e0       	ldi	r24, 0x0F	; 15
+ 29c:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 2a0:	81 11       	cpse	r24, r1
+ 2a2:	2d c0       	rjmp	.+90     	; 0x2fe <confgration_PB_PRESSED+0xa6>
+ 2a4:	80 91 b7 00 	lds	r24, 0x00B7	; 0x8000b7 <PRESSEDFLAG_RESET_PB>
+ 2a8:	81 11       	cpse	r24, r1
+ 2aa:	45 c0       	rjmp	.+138    	; 0x336 <confgration_PB_PRESSED+0xde>
+ 2ac:	10 93 b7 00 	sts	0x00B7, r17	; 0x8000b7 <PRESSEDFLAG_RESET_PB>
+ 2b0:	d1 e0       	ldi	r29, 0x01	; 1
+ 2b2:	8e e0       	ldi	r24, 0x0E	; 14
+ 2b4:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 2b8:	81 11       	cpse	r24, r1
+ 2ba:	29 c0       	rjmp	.+82     	; 0x30e <confgration_PB_PRESSED+0xb6>
+ 2bc:	80 91 b6 00 	lds	r24, 0x00B6	; 0x8000b6 <PRESSEDFLAG_POUSE_RESUME_PB>
+ 2c0:	81 11       	cpse	r24, r1
+ 2c2:	37 c0       	rjmp	.+110    	; 0x332 <confgration_PB_PRESSED+0xda>
+ 2c4:	10 93 b6 00 	sts	0x00B6, r17	; 0x8000b6 <PRESSEDFLAG_POUSE_RESUME_PB>
+ 2c8:	91 e0       	ldi	r25, 0x01	; 1
+ 2ca:	c1 30       	cpi	r28, 0x01	; 1
+ 2cc:	29 f1       	breq	.+74     	; 0x318 <confgration_PB_PRESSED+0xc0>
+ 2ce:	c2 30       	cpi	r28, 0x02	; 2
+ 2d0:	a1 f1       	breq	.+104    	; 0x33a <confgration_PB_PRESSED+0xe2>
+ 2d2:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <New_Time>
+ 2d6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 2da:	0e 94 c9 00 	call	0x192	; 0x192 <Desplay_Number>
+ 2de:	80 91 b5 00 	lds	r24, 0x00B5	; 0x8000b5 <EDIT_FLAG>
+ 2e2:	81 11       	cpse	r24, r1
+ 2e4:	3e c0       	rjmp	.+124    	; 0x362 <confgration_PB_PRESSED+0x10a>
+ 2e6:	8d e0       	ldi	r24, 0x0D	; 13
+ 2e8:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 2ec:	88 23       	and	r24, r24
+ 2ee:	81 f2       	breq	.-96     	; 0x290 <confgration_PB_PRESSED+0x38>
+ 2f0:	10 93 b8 00 	sts	0x00B8, r17	; 0x8000b8 <SECONDPRESSFLAG_CONFG_PB>
+ 2f4:	8f e0       	ldi	r24, 0x0F	; 15
+ 2f6:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 2fa:	88 23       	and	r24, r24
+ 2fc:	99 f2       	breq	.-90     	; 0x2a4 <confgration_PB_PRESSED+0x4c>
+ 2fe:	10 92 b7 00 	sts	0x00B7, r1	; 0x8000b7 <PRESSEDFLAG_RESET_PB>
+ 302:	d0 e0       	ldi	r29, 0x00	; 0
+ 304:	8e e0       	ldi	r24, 0x0E	; 14
+ 306:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 30a:	88 23       	and	r24, r24
+ 30c:	b9 f2       	breq	.-82     	; 0x2bc <confgration_PB_PRESSED+0x64>
+ 30e:	10 92 b6 00 	sts	0x00B6, r1	; 0x8000b6 <PRESSEDFLAG_POUSE_RESUME_PB>
+ 312:	90 e0       	ldi	r25, 0x00	; 0
+ 314:	c1 30       	cpi	r28, 0x01	; 1
+ 316:	d9 f6       	brne	.-74     	; 0x2ce <confgration_PB_PRESSED+0x76>
+ 318:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 31c:	8d 1b       	sub	r24, r29
+ 31e:	89 0f       	add	r24, r25
+ 320:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <New_Time>
+ 324:	d8 cf       	rjmp	.-80     	; 0x2d6 <confgration_PB_PRESSED+0x7e>
+ 326:	10 92 b9 00 	sts	0x00B9, r1	; 0x8000b9 <PRESSEDFLAG_CONFG_PB>
+ 32a:	df 91       	pop	r29
+ 32c:	cf 91       	pop	r28
+ 32e:	1f 91       	pop	r17
+ 330:	08 95       	ret
+ 332:	90 e0       	ldi	r25, 0x00	; 0
+ 334:	ca cf       	rjmp	.-108    	; 0x2ca <confgration_PB_PRESSED+0x72>
+ 336:	d0 e0       	ldi	r29, 0x00	; 0
+ 338:	bc cf       	rjmp	.-136    	; 0x2b2 <confgration_PB_PRESSED+0x5a>
+ 33a:	9d 1b       	sub	r25, r29
+ 33c:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 340:	2a e0       	ldi	r18, 0x0A	; 10
+ 342:	92 9f       	mul	r25, r18
+ 344:	80 0d       	add	r24, r0
+ 346:	11 24       	eor	r1, r1
+ 348:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <New_Time>
+ 34c:	c4 cf       	rjmp	.-120    	; 0x2d6 <confgration_PB_PRESSED+0x7e>
+ 34e:	90 91 ba 00 	lds	r25, 0x00BA	; 0x8000ba <FLAGOFPB2>
+ 352:	9f 5f       	subi	r25, 0xFF	; 255
+ 354:	90 93 ba 00 	sts	0x00BA, r25	; 0x8000ba <FLAGOFPB2>
+ 358:	10 92 b8 00 	sts	0x00B8, r1	; 0x8000b8 <SECONDPRESSFLAG_CONFG_PB>
+ 35c:	80 93 b5 00 	sts	0x00B5, r24	; 0x8000b5 <EDIT_FLAG>
+ 360:	9c cf       	rjmp	.-200    	; 0x29a <confgration_PB_PRESSED+0x42>
+ 362:	10 92 b5 00 	sts	0x00B5, r1	; 0x8000b5 <EDIT_FLAG>
+ 366:	80 91 ba 00 	lds	r24, 0x00BA	; 0x8000ba <FLAGOFPB2>
+ 36a:	83 30       	cpi	r24, 0x03	; 3
+ 36c:	08 f4       	brcc	.+2      	; 0x370 <confgration_PB_PRESSED+0x118>
+ 36e:	8a cf       	rjmp	.-236    	; 0x284 <confgration_PB_PRESSED+0x2c>
+ 370:	81 e0       	ldi	r24, 0x01	; 1
+ 372:	80 93 b9 00 	sts	0x00B9, r24	; 0x8000b9 <PRESSEDFLAG_CONFG_PB>
+ 376:	10 92 ba 00 	sts	0x00BA, r1	; 0x8000ba <FLAGOFPB2>
+ 37a:	60 e0       	ldi	r22, 0x00	; 0
+ 37c:	8c e0       	ldi	r24, 0x0C	; 12
+ 37e:	df 91       	pop	r29
+ 380:	cf 91       	pop	r28
+ 382:	1f 91       	pop	r17
+ 384:	0c 94 9d 02 	jmp	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 388:	61 e0       	ldi	r22, 0x01	; 1
+ 38a:	8b e0       	ldi	r24, 0x0B	; 11
+ 38c:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 390:	c1 e0       	ldi	r28, 0x01	; 1
+ 392:	a5 cf       	rjmp	.-182    	; 0x2de <confgration_PB_PRESSED+0x86>
+ 394:	60 e0       	ldi	r22, 0x00	; 0
+ 396:	8b e0       	ldi	r24, 0x0B	; 11
+ 398:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 39c:	61 e0       	ldi	r22, 0x01	; 1
+ 39e:	8c e0       	ldi	r24, 0x0C	; 12
+ 3a0:	0e 94 9d 02 	call	0x53a	; 0x53a <MCAL_DIO_WRITEPIN>
+ 3a4:	c2 e0       	ldi	r28, 0x02	; 2
+ 3a6:	9b cf       	rjmp	.-202    	; 0x2de <confgration_PB_PRESSED+0x86>
+
+000003a8 <main>:
+	
+}
+int main(void)
+{
+   MCAL_DIO_INIT();
+ 3a8:	0e 94 8a 02 	call	0x514	; 0x514 <MCAL_DIO_INIT>
+   HAL_SEVENSEGMANT_Init();
+ 3ac:	0e 94 83 00 	call	0x106	; 0x106 <HAL_SEVENSEGMANT_Init>
+ 3b0:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+    while (1) 
+    {
+		if (Time!=0)
+ 3b4:	81 11       	cpse	r24, r1
+ 3b6:	1e c0       	rjmp	.+60     	; 0x3f4 <main+0x4c>
+ 3b8:	cc e0       	ldi	r28, 0x0C	; 12
+ 3ba:	d0 e0       	ldi	r29, 0x00	; 0
+ 3bc:	02 c0       	rjmp	.+4      	; 0x3c2 <main+0x1a>
+ 3be:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+		}
+		else
+		{
+			for (u16 Iteration=0;Iteration<12;Iteration++)
+			{
+				Desplay_Number (Time);
+ 3c2:	0e 94 c9 00 	call	0x192	; 0x192 <Desplay_Number>
+}
+
+	
+void Reset_PB_PRESSED (void)
+{
+	if (MCAL_DIO_READPIN(RESET_PB)==LOW)
+ 3c6:	8f e0       	ldi	r24, 0x0F	; 15
+ 3c8:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 3cc:	81 11       	cpse	r24, r1
+ 3ce:	04 c0       	rjmp	.+8      	; 0x3d8 <main+0x30>
+	{
+		Time=New_Time;
+ 3d0:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <New_Time>
+ 3d4:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+		{
+			for (u16 Iteration=0;Iteration<12;Iteration++)
+			{
+				Desplay_Number (Time);
+				Reset_PB_PRESSED();
+				confgration_PB_PRESSED();
+ 3d8:	0e 94 2c 01 	call	0x258	; 0x258 <confgration_PB_PRESSED>
+ 3dc:	21 97       	sbiw	r28, 0x01	; 1
+		Time--;
+		}
+		}
+		else
+		{
+			for (u16 Iteration=0;Iteration<12;Iteration++)
+ 3de:	79 f7       	brne	.-34     	; 0x3be <main+0x16>
+	
+} 
+void ALARM (void)
+{
+	
+	MCAL_DIO_TOGGLEPIN (DIGIT1LED);
+ 3e0:	8b e0       	ldi	r24, 0x0B	; 11
+ 3e2:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <MCAL_DIO_TOGGLEPIN>
+	MCAL_DIO_TOGGLEPIN (DIGIT2LED);
+ 3e6:	8c e0       	ldi	r24, 0x0C	; 12
+ 3e8:	0e 94 f8 02 	call	0x5f0	; 0x5f0 <MCAL_DIO_TOGGLEPIN>
+ 3ec:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+{
+   MCAL_DIO_INIT();
+   HAL_SEVENSEGMANT_Init();
+    while (1) 
+    {
+		if (Time!=0)
+ 3f0:	88 23       	and	r24, r24
+ 3f2:	11 f3       	breq	.-60     	; 0x3b8 <main+0x10>
+ 3f4:	c0 ea       	ldi	r28, 0xA0	; 160
+ 3f6:	d0 e0       	ldi	r29, 0x00	; 0
+ 3f8:	02 c0       	rjmp	.+4      	; 0x3fe <main+0x56>
+ 3fa:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+		{
+			
+		for (u16 Iteration=0;Iteration<160;Iteration++)
+		{
+			Desplay_Number (Time);
+ 3fe:	0e 94 c9 00 	call	0x192	; 0x192 <Desplay_Number>
+	        pouse_resume_PB_PRESSED();
+ 402:	0e 94 fb 00 	call	0x1f6	; 0x1f6 <pouse_resume_PB_PRESSED>
+}
+
+	
+void Reset_PB_PRESSED (void)
+{
+	if (MCAL_DIO_READPIN(RESET_PB)==LOW)
+ 406:	8f e0       	ldi	r24, 0x0F	; 15
+ 408:	0e 94 db 02 	call	0x5b6	; 0x5b6 <MCAL_DIO_READPIN>
+ 40c:	81 11       	cpse	r24, r1
+ 40e:	04 c0       	rjmp	.+8      	; 0x418 <__EEPROM_REGION_LENGTH__+0x18>
+	{
+		Time=New_Time;
+ 410:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <New_Time>
+ 414:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+		for (u16 Iteration=0;Iteration<160;Iteration++)
+		{
+			Desplay_Number (Time);
+	        pouse_resume_PB_PRESSED();
+			Reset_PB_PRESSED();
+			confgration_PB_PRESSED();
+ 418:	0e 94 2c 01 	call	0x258	; 0x258 <confgration_PB_PRESSED>
+ 41c:	21 97       	sbiw	r28, 0x01	; 1
+    while (1) 
+    {
+		if (Time!=0)
+		{
+			
+		for (u16 Iteration=0;Iteration<160;Iteration++)
+ 41e:	69 f7       	brne	.-38     	; 0x3fa <main+0x52>
+			Desplay_Number (Time);
+	        pouse_resume_PB_PRESSED();
+			Reset_PB_PRESSED();
+			confgration_PB_PRESSED();
+		}
+		if (FLAGOFPB1==0)
+ 420:	80 91 bb 00 	lds	r24, 0x00BB	; 0x8000bb <FLAGOFPB1>
+ 424:	81 11       	cpse	r24, r1
+ 426:	06 c0       	rjmp	.+12     	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
+		{
+		Time--;
+ 428:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 42c:	81 50       	subi	r24, 0x01	; 1
+ 42e:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 432:	c0 cf       	rjmp	.-128    	; 0x3b4 <main+0xc>
+ 434:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 438:	bd cf       	rjmp	.-134    	; 0x3b4 <main+0xc>
+
+0000043a <MCAL_DIO_SetPinDirection>:
+ extern const DIO_PINSTUTES_et PINXSTUTES [PIN_NUMBERS];
+
+ void MCAL_DIO_SetPinDirection(DIO_PINS_et Pinx,DIO_PINSTUTES_et stutes)
+{   u8 Pin;
+	DIO_PORTS_et Port;
+	Port=Pinx/8;
+ 43a:	28 2f       	mov	r18, r24
+ 43c:	26 95       	lsr	r18
+ 43e:	26 95       	lsr	r18
+ 440:	26 95       	lsr	r18
+	Pin =Pinx%8;
+ 442:	87 70       	andi	r24, 0x07	; 7
+	switch (stutes)
+ 444:	61 30       	cpi	r22, 0x01	; 1
+ 446:	09 f4       	brne	.+2      	; 0x44a <MCAL_DIO_SetPinDirection+0x10>
+ 448:	45 c0       	rjmp	.+138    	; 0x4d4 <MCAL_DIO_SetPinDirection+0x9a>
+ 44a:	20 f1       	brcs	.+72     	; 0x494 <MCAL_DIO_SetPinDirection+0x5a>
+ 44c:	62 30       	cpi	r22, 0x02	; 2
+ 44e:	09 f5       	brne	.+66     	; 0x492 <MCAL_DIO_SetPinDirection+0x58>
+		case INPFREE :
+		CLEAR_BIT(*DIO_REG[Port][DDR],Pin);
+		CLEAR_BIT(*DIO_REG[Port][PORT],Pin);
+		break;
+		case INPPULLUP :
+		CLEAR_BIT(*DIO_REG[Port][DDR],Pin);
+ 450:	30 e0       	ldi	r19, 0x00	; 0
+ 452:	41 e0       	ldi	r20, 0x01	; 1
+ 454:	50 e0       	ldi	r21, 0x00	; 0
+ 456:	ba 01       	movw	r22, r20
+ 458:	02 c0       	rjmp	.+4      	; 0x45e <MCAL_DIO_SetPinDirection+0x24>
+ 45a:	66 0f       	add	r22, r22
+ 45c:	77 1f       	adc	r23, r23
+ 45e:	8a 95       	dec	r24
+ 460:	e2 f7       	brpl	.-8      	; 0x45a <MCAL_DIO_SetPinDirection+0x20>
+ 462:	cb 01       	movw	r24, r22
+ 464:	f9 01       	movw	r30, r18
+ 466:	ee 0f       	add	r30, r30
+ 468:	ff 1f       	adc	r31, r31
+ 46a:	e2 0f       	add	r30, r18
+ 46c:	f3 1f       	adc	r31, r19
+ 46e:	ee 0f       	add	r30, r30
+ 470:	ff 1f       	adc	r31, r31
+ 472:	ee 59       	subi	r30, 0x9E	; 158
+ 474:	ff 4f       	sbci	r31, 0xFF	; 255
+ 476:	a0 81       	ld	r26, Z
+ 478:	b1 81       	ldd	r27, Z+1	; 0x01
+ 47a:	9c 91       	ld	r25, X
+ 47c:	28 2f       	mov	r18, r24
+ 47e:	20 95       	com	r18
+ 480:	92 23       	and	r25, r18
+ 482:	9c 93       	st	X, r25
+		SET_BIT(*DIO_REG[Port][PORT],Pin);
+ 484:	02 80       	ldd	r0, Z+2	; 0x02
+ 486:	f3 81       	ldd	r31, Z+3	; 0x03
+ 488:	e0 2d       	mov	r30, r0
+ 48a:	90 81       	ld	r25, Z
+ 48c:	89 2b       	or	r24, r25
+ 48e:	80 83       	st	Z, r24
+ 490:	08 95       	ret
+ 492:	08 95       	ret
+	Port=Pinx/8;
+	Pin =Pinx%8;
+	switch (stutes)
+	{
+		case OUTPUTT :
+		SET_BIT(*DIO_REG[Port][DDR],Pin);
+ 494:	30 e0       	ldi	r19, 0x00	; 0
+ 496:	41 e0       	ldi	r20, 0x01	; 1
+ 498:	50 e0       	ldi	r21, 0x00	; 0
+ 49a:	ba 01       	movw	r22, r20
+ 49c:	02 c0       	rjmp	.+4      	; 0x4a2 <MCAL_DIO_SetPinDirection+0x68>
+ 49e:	66 0f       	add	r22, r22
+ 4a0:	77 1f       	adc	r23, r23
+ 4a2:	8a 95       	dec	r24
+ 4a4:	e2 f7       	brpl	.-8      	; 0x49e <MCAL_DIO_SetPinDirection+0x64>
+ 4a6:	cb 01       	movw	r24, r22
+ 4a8:	f9 01       	movw	r30, r18
+ 4aa:	ee 0f       	add	r30, r30
+ 4ac:	ff 1f       	adc	r31, r31
+ 4ae:	e2 0f       	add	r30, r18
+ 4b0:	f3 1f       	adc	r31, r19
+ 4b2:	ee 0f       	add	r30, r30
+ 4b4:	ff 1f       	adc	r31, r31
+ 4b6:	ee 59       	subi	r30, 0x9E	; 158
+ 4b8:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4ba:	a0 81       	ld	r26, Z
+ 4bc:	b1 81       	ldd	r27, Z+1	; 0x01
+ 4be:	9c 91       	ld	r25, X
+ 4c0:	98 2b       	or	r25, r24
+ 4c2:	9c 93       	st	X, r25
+		CLEAR_BIT(*DIO_REG[Port][PORT],Pin);
+ 4c4:	02 80       	ldd	r0, Z+2	; 0x02
+ 4c6:	f3 81       	ldd	r31, Z+3	; 0x03
+ 4c8:	e0 2d       	mov	r30, r0
+ 4ca:	90 81       	ld	r25, Z
+ 4cc:	80 95       	com	r24
+ 4ce:	89 23       	and	r24, r25
+ 4d0:	80 83       	st	Z, r24
+		break;
+ 4d2:	08 95       	ret
+		case INPFREE :
+		CLEAR_BIT(*DIO_REG[Port][DDR],Pin);
+ 4d4:	30 e0       	ldi	r19, 0x00	; 0
+ 4d6:	41 e0       	ldi	r20, 0x01	; 1
+ 4d8:	50 e0       	ldi	r21, 0x00	; 0
+ 4da:	ba 01       	movw	r22, r20
+ 4dc:	02 c0       	rjmp	.+4      	; 0x4e2 <MCAL_DIO_SetPinDirection+0xa8>
+ 4de:	66 0f       	add	r22, r22
+ 4e0:	77 1f       	adc	r23, r23
+ 4e2:	8a 95       	dec	r24
+ 4e4:	e2 f7       	brpl	.-8      	; 0x4de <MCAL_DIO_SetPinDirection+0xa4>
+ 4e6:	cb 01       	movw	r24, r22
+ 4e8:	80 95       	com	r24
+ 4ea:	f9 01       	movw	r30, r18
+ 4ec:	ee 0f       	add	r30, r30
+ 4ee:	ff 1f       	adc	r31, r31
+ 4f0:	e2 0f       	add	r30, r18
+ 4f2:	f3 1f       	adc	r31, r19
+ 4f4:	ee 0f       	add	r30, r30
+ 4f6:	ff 1f       	adc	r31, r31
+ 4f8:	ee 59       	subi	r30, 0x9E	; 158
+ 4fa:	ff 4f       	sbci	r31, 0xFF	; 255
+ 4fc:	a0 81       	ld	r26, Z
+ 4fe:	b1 81       	ldd	r27, Z+1	; 0x01
+ 500:	9c 91       	ld	r25, X
+ 502:	98 23       	and	r25, r24
+ 504:	9c 93       	st	X, r25
+		CLEAR_BIT(*DIO_REG[Port][PORT],Pin);
+ 506:	02 80       	ldd	r0, Z+2	; 0x02
+ 508:	f3 81       	ldd	r31, Z+3	; 0x03
+ 50a:	e0 2d       	mov	r30, r0
+ 50c:	90 81       	ld	r25, Z
+ 50e:	89 23       	and	r24, r25
+ 510:	80 83       	st	Z, r24
+		break;
+ 512:	08 95       	ret
+
+00000514 <MCAL_DIO_INIT>:
+	}
+	
+}
+
+void MCAL_DIO_INIT (void)
+{
+ 514:	0f 93       	push	r16
+ 516:	1f 93       	push	r17
+ 518:	cf 93       	push	r28
+ 51a:	0a e7       	ldi	r16, 0x7A	; 122
+ 51c:	10 e0       	ldi	r17, 0x00	; 0
+	DIO_PINS_et Pinx;
+	for (Pinx=PINA0;Pinx<PIN_NUMBERS;Pinx++)
+ 51e:	c0 e0       	ldi	r28, 0x00	; 0
+	{
+		MCAL_DIO_SetPinDirection(Pinx,PINXSTUTES[Pinx]);
+ 520:	f8 01       	movw	r30, r16
+ 522:	61 91       	ld	r22, Z+
+ 524:	8f 01       	movw	r16, r30
+ 526:	8c 2f       	mov	r24, r28
+ 528:	0e 94 1d 02 	call	0x43a	; 0x43a <MCAL_DIO_SetPinDirection>
+}
+
+void MCAL_DIO_INIT (void)
+{
+	DIO_PINS_et Pinx;
+	for (Pinx=PINA0;Pinx<PIN_NUMBERS;Pinx++)
+ 52c:	cf 5f       	subi	r28, 0xFF	; 255
+ 52e:	c0 32       	cpi	r28, 0x20	; 32
+ 530:	b9 f7       	brne	.-18     	; 0x520 <MCAL_DIO_INIT+0xc>
+	{
+		MCAL_DIO_SetPinDirection(Pinx,PINXSTUTES[Pinx]);
+	}
+}
+ 532:	cf 91       	pop	r28
+ 534:	1f 91       	pop	r17
+ 536:	0f 91       	pop	r16
+ 538:	08 95       	ret
+
+0000053a <MCAL_DIO_WRITEPIN>:
+
+void MCAL_DIO_WRITEPIN(DIO_PINS_et Pinx,DIO_PINLEVEl_et PinxLevel)
+{
+	u8 Pin;
+	DIO_PORTS_et Port;
+	Port=Pinx/8;
+ 53a:	28 2f       	mov	r18, r24
+ 53c:	26 95       	lsr	r18
+ 53e:	26 95       	lsr	r18
+ 540:	26 95       	lsr	r18
+	Pin =Pinx%8;
+ 542:	87 70       	andi	r24, 0x07	; 7
+	if (PinxLevel==HIGH)
+ 544:	61 30       	cpi	r22, 0x01	; 1
+ 546:	e9 f0       	breq	.+58     	; 0x582 <MCAL_DIO_WRITEPIN+0x48>
+	{
+		SET_BIT(*DIO_REG[Port][PORT],Pin);
+	}
+	else if(PinxLevel==LOW)
+ 548:	61 11       	cpse	r22, r1
+ 54a:	1a c0       	rjmp	.+52     	; 0x580 <MCAL_DIO_WRITEPIN+0x46>
+	{
+		CLEAR_BIT(*DIO_REG[Port][PORT],Pin);
+ 54c:	30 e0       	ldi	r19, 0x00	; 0
+ 54e:	f9 01       	movw	r30, r18
+ 550:	ee 0f       	add	r30, r30
+ 552:	ff 1f       	adc	r31, r31
+ 554:	e2 0f       	add	r30, r18
+ 556:	f3 1f       	adc	r31, r19
+ 558:	ee 0f       	add	r30, r30
+ 55a:	ff 1f       	adc	r31, r31
+ 55c:	ee 59       	subi	r30, 0x9E	; 158
+ 55e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 560:	02 80       	ldd	r0, Z+2	; 0x02
+ 562:	f3 81       	ldd	r31, Z+3	; 0x03
+ 564:	e0 2d       	mov	r30, r0
+ 566:	40 81       	ld	r20, Z
+ 568:	21 e0       	ldi	r18, 0x01	; 1
+ 56a:	30 e0       	ldi	r19, 0x00	; 0
+ 56c:	b9 01       	movw	r22, r18
+ 56e:	02 c0       	rjmp	.+4      	; 0x574 <MCAL_DIO_WRITEPIN+0x3a>
+ 570:	66 0f       	add	r22, r22
+ 572:	77 1f       	adc	r23, r23
+ 574:	8a 95       	dec	r24
+ 576:	e2 f7       	brpl	.-8      	; 0x570 <MCAL_DIO_WRITEPIN+0x36>
+ 578:	cb 01       	movw	r24, r22
+ 57a:	80 95       	com	r24
+ 57c:	84 23       	and	r24, r20
+ 57e:	80 83       	st	Z, r24
+ 580:	08 95       	ret
+	DIO_PORTS_et Port;
+	Port=Pinx/8;
+	Pin =Pinx%8;
+	if (PinxLevel==HIGH)
+	{
+		SET_BIT(*DIO_REG[Port][PORT],Pin);
+ 582:	30 e0       	ldi	r19, 0x00	; 0
+ 584:	f9 01       	movw	r30, r18
+ 586:	ee 0f       	add	r30, r30
+ 588:	ff 1f       	adc	r31, r31
+ 58a:	e2 0f       	add	r30, r18
+ 58c:	f3 1f       	adc	r31, r19
+ 58e:	ee 0f       	add	r30, r30
+ 590:	ff 1f       	adc	r31, r31
+ 592:	ee 59       	subi	r30, 0x9E	; 158
+ 594:	ff 4f       	sbci	r31, 0xFF	; 255
+ 596:	02 80       	ldd	r0, Z+2	; 0x02
+ 598:	f3 81       	ldd	r31, Z+3	; 0x03
+ 59a:	e0 2d       	mov	r30, r0
+ 59c:	40 81       	ld	r20, Z
+ 59e:	21 e0       	ldi	r18, 0x01	; 1
+ 5a0:	30 e0       	ldi	r19, 0x00	; 0
+ 5a2:	b9 01       	movw	r22, r18
+ 5a4:	02 c0       	rjmp	.+4      	; 0x5aa <MCAL_DIO_WRITEPIN+0x70>
+ 5a6:	66 0f       	add	r22, r22
+ 5a8:	77 1f       	adc	r23, r23
+ 5aa:	8a 95       	dec	r24
+ 5ac:	e2 f7       	brpl	.-8      	; 0x5a6 <MCAL_DIO_WRITEPIN+0x6c>
+ 5ae:	cb 01       	movw	r24, r22
+ 5b0:	84 2b       	or	r24, r20
+ 5b2:	80 83       	st	Z, r24
+ 5b4:	08 95       	ret
+
+000005b6 <MCAL_DIO_READPIN>:
+{
+	u8 Pin;
+	DIO_PORTS_et Port;
+	Port=Pinx/8;
+	Pin =Pinx%8;
+	return READ_BIT(*DIO_REG[Port][PIN],Pin);
+ 5b6:	28 2f       	mov	r18, r24
+ 5b8:	26 95       	lsr	r18
+ 5ba:	26 95       	lsr	r18
+ 5bc:	26 95       	lsr	r18
+ 5be:	30 e0       	ldi	r19, 0x00	; 0
+ 5c0:	f9 01       	movw	r30, r18
+ 5c2:	ee 0f       	add	r30, r30
+ 5c4:	ff 1f       	adc	r31, r31
+ 5c6:	e2 0f       	add	r30, r18
+ 5c8:	f3 1f       	adc	r31, r19
+ 5ca:	ee 0f       	add	r30, r30
+ 5cc:	ff 1f       	adc	r31, r31
+ 5ce:	ee 59       	subi	r30, 0x9E	; 158
+ 5d0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 5d2:	04 80       	ldd	r0, Z+4	; 0x04
+ 5d4:	f5 81       	ldd	r31, Z+5	; 0x05
+ 5d6:	e0 2d       	mov	r30, r0
+ 5d8:	20 81       	ld	r18, Z
+ 5da:	30 e0       	ldi	r19, 0x00	; 0
+ 5dc:	87 70       	andi	r24, 0x07	; 7
+ 5de:	a9 01       	movw	r20, r18
+ 5e0:	02 c0       	rjmp	.+4      	; 0x5e6 <MCAL_DIO_READPIN+0x30>
+ 5e2:	55 95       	asr	r21
+ 5e4:	47 95       	ror	r20
+ 5e6:	8a 95       	dec	r24
+ 5e8:	e2 f7       	brpl	.-8      	; 0x5e2 <MCAL_DIO_READPIN+0x2c>
+ 5ea:	ca 01       	movw	r24, r20
+}
+ 5ec:	81 70       	andi	r24, 0x01	; 1
+ 5ee:	08 95       	ret
+
+000005f0 <MCAL_DIO_TOGGLEPIN>:
+{
+	u8 Pin;
+	DIO_PORTS_et Port;
+	Port=Pinx/8;
+	Pin =Pinx%8;
+	TOGGLE_BIT(*DIO_REG[Port][PORT],Pin);	
+ 5f0:	28 2f       	mov	r18, r24
+ 5f2:	26 95       	lsr	r18
+ 5f4:	26 95       	lsr	r18
+ 5f6:	26 95       	lsr	r18
+ 5f8:	30 e0       	ldi	r19, 0x00	; 0
+ 5fa:	f9 01       	movw	r30, r18
+ 5fc:	ee 0f       	add	r30, r30
+ 5fe:	ff 1f       	adc	r31, r31
+ 600:	e2 0f       	add	r30, r18
+ 602:	f3 1f       	adc	r31, r19
+ 604:	ee 0f       	add	r30, r30
+ 606:	ff 1f       	adc	r31, r31
+ 608:	ee 59       	subi	r30, 0x9E	; 158
+ 60a:	ff 4f       	sbci	r31, 0xFF	; 255
+ 60c:	02 80       	ldd	r0, Z+2	; 0x02
+ 60e:	f3 81       	ldd	r31, Z+3	; 0x03
+ 610:	e0 2d       	mov	r30, r0
+ 612:	30 81       	ld	r19, Z
+ 614:	28 2f       	mov	r18, r24
+ 616:	27 70       	andi	r18, 0x07	; 7
+ 618:	81 e0       	ldi	r24, 0x01	; 1
+ 61a:	90 e0       	ldi	r25, 0x00	; 0
+ 61c:	01 c0       	rjmp	.+2      	; 0x620 <MCAL_DIO_TOGGLEPIN+0x30>
+ 61e:	88 0f       	add	r24, r24
+ 620:	2a 95       	dec	r18
+ 622:	ea f7       	brpl	.-6      	; 0x61e <MCAL_DIO_TOGGLEPIN+0x2e>
+ 624:	83 27       	eor	r24, r19
+ 626:	80 83       	st	Z, r24
+ 628:	08 95       	ret
+
+0000062a <_exit>:
+ 62a:	f8 94       	cli
+
+0000062c <__stop_program>:
+ 62c:	ff cf       	rjmp	.-2      	; 0x62c <__stop_program>
